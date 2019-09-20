@@ -1,0 +1,127 @@
+|------------------------------------------------------------------------------|
+|                       Platform Event Log - 0x90000071                        |
+|------------------------------------------------------------------------------|
+|                                Private Header                                |
+|------------------------------------------------------------------------------|
+| Section Version          : 1                                                 |
+| Sub-section type         : 0                                                 |
+| Created by               : vpd                                               |
+| Created at               : 00/00/0000 8E:E0:EE                               |
+| Committed at             : 00/00/0000 9D:B4:C2                               |
+| Creator Subsystem        : HostBoot                                          |
+| CSSVER                   :                                                   |
+| Platform Log Id          : 0x90000071                                        |
+| Entry Id                 : 0x90000071                                        |
+| Total Log Size           : 680                                               |
+|------------------------------------------------------------------------------|
+|                                 User Header                                  |
+|------------------------------------------------------------------------------|
+| Section Version          : 1                                                 |
+| Sub-section type         : 0                                                 |
+| Log Committed by         :                                                  |
+| Subsystem                : CEC Hardware Subsystem                            |
+| Event Scope              : Single Platform                                   |
+| Event Severity           : Unrecoverable Error                               |
+| Event Type               : Not Applicable                                    |
+| Return Code              : 0x00000000                                        |
+| Action Flags             : None declared                                     |
+|------------------------------------------------------------------------------|
+|                        Primary System Reference Code                         |
+|------------------------------------------------------------------------------|
+| Section Version          : 1                                                 |
+| Sub-section type         : 1                                                 |
+| Created by               : vpd                                               |
+| SRC Format               : 0xE0                                              |
+| SRC Version              : 0x02                                              |
+| Virtual Progress SRC     : False                                             |
+| I5/OS Service Event Bit  : False                                             |
+| Hypervisor Dump Initiated: False                                             |
+| Power Control Net Fault  : False                                             |
+| Deconfigured             : True                                              |
+| Garded                   : False                                             |
+| Acknowledged             : False                                             |
+|                                                                              |
+| Valid Word Count         : 0x09                                              |
+| Reference Code           : BC501D30                                          |
+| Hex Words 2 - 5          : 000000E0 00003000 00000000 02200000               |
+| Hex Words 6 - 9          : 00000000 0000000E 00000000 00020000               |
+|                                                                              |
+| devdesc                  : The VHDR was invalid                              |
+| moduleid                 : VPD::VPD_IPVPD_FIND_RECORD_OFFSET_SEEPROM         |
+| reasoncode               : VPD::VPD_RECORD_INVALID_VHDR                      |
+| userdata1                : VHDR length                                       |
+| userdata2                : Target HUID                                       |
+|------------------------------------------------------------------------------|
+|                              User Defined Data                               |
+|------------------------------------------------------------------------------|
+| Section Version          : 1                                                 |
+| Sub-section type         : 6                                                 |
+| Created by               : errl                                              |
+| Callout type             : Hardware Callout                                  |
+| Target                   : Physical:/Sys0/Node0                              |
+| CPU id                   : 0x9                                               |
+| Deconfig State           : DECONFIG                                          |
+| GARD Error Type          : GARD_NULL                                         |
+| Priority                 : SRCI_PRIORITY_HIGH                                |
+|------------------------------------------------------------------------------|
+|                              User Defined Data                               |
+|------------------------------------------------------------------------------|
+| Section Version          : 1                                                 |
+| Sub-section type         : 6                                                 |
+| Created by               : errl                                              |
+| Callout type             : Procedure Callout                                 |
+| Procedure                : EPUB_PRC_HB_CODE                                  |
+| Priority                 : SRCI_PRIORITY_LOW                                 |
+|------------------------------------------------------------------------------|
+|                              User Defined Data                               |
+|------------------------------------------------------------------------------|
+| Section Version          : 1                                                 |
+| Sub-section type         : 1                                                 |
+| Created by               : vpd                                               |
+|                                VPD Parameters                                |
+|                                   VPD Read                                   |
+| Target                   : 00000000                                          |
+| Length of I/O Buffer     : 0000000000020000                                  |
+| Record                   : 0000000000000040                                  |
+| Keyword                  : 0000000000000040                                  |
+|------------------------------------------------------------------------------|
+|                              User Defined Data                               |
+|------------------------------------------------------------------------------|
+| Section Version          : 1                                                 |
+| Sub-section type         : 3                                                 |
+| Created by               : errl                                              |
+| Backtrace                : # 0 000000000003F524 ERRORLOG::ErrlUserDetailsBack|
+|                          : Trace::ErrlUserDetailsBackTrace()                 |
+|                          : # 1 000000000003B7B4 ErrlEntry::ErrlEntry         |
+|                          : # 2 00000000400FCAAC IpVpdFacade::findRecordOffset|
+|                          : Seeprom(char const*                               |
+|                          : # 3 00000000400FDF70 IpVpdFacade::findRecordOffset|
+|                          : (char const*                                      |
+|                          : # 4 00000000400FE0CC IpVpdFacade::read(TARGETING::|
+|                          : Target*                                           |
+|                          : # 5 00000000400FE480 IpVpdFacade::cmpSeepromToZero|
+|                          : (TARGETING::Target*                               |
+|                          : # 6 0000000040102B2C VPD::getPnAndSnRecordAndKeywo|
+|                          : rds(TARGETING::Target*                            |
+|                          : # 7 0000000040102F20 VPD::setPartAndSerialNumberAt|
+|                          : tributes(TARGETING::Target*)                      |
+|                          : # 8 00000000400FF420 nodePresenceDetect(DeviceFW::|
+|                          : OperationType                                     |
+|                          : # 9 0000000000047D4C DeviceFW::Associator::perform|
+|                          : Op(DeviceFW::OperationType                        |
+|                          : #10 00000000000476C0 DeviceFW::deviceRead(TARGETIN|
+|                          : G::Target*                                        |
+|                          : #11 00000000400D419C HWAS::platPresenceDetect(std:|
+|                          : :vector<TARGETING::Target*>&)                     |
+|                          : #12 00000000400CA3CC HWAS::discoverTargets()      |
+|                          : #13 00000000400D48D8 HWAS::host_discover_targets(v|
+|                          : oid*)                                             |
+|                          : #14 0000000000002564                              |
+|------------------------------------------------------------------------------|
+|                              User Defined Data                               |
+|------------------------------------------------------------------------------|
+| Section Version          : 1                                                 |
+| Sub-section type         : 1                                                 |
+| Created by               : errl                                              |
+| String data              : Hostboot Build ID: vesnin-v2.4/hbicore.bin        |
+|------------------------------------------------------------------------------|

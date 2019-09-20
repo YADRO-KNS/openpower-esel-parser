@@ -1,0 +1,4 @@
+[submodule "hostboot"]
+	path = hostboot
+	url = https://github.com/artemsen/hostboot.git
+	branch = unaligned_read

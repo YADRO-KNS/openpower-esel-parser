@@ -1,0 +1,45 @@
+# Test suite logs
+*.log
+
+# Code Coverage
+*.gcno
+*.trs
+*-coverage*
+
+# Compiler
+*.o
+
+# Test module
+test/*_test
+
+# Libtool
+*.la
+*.lo
+
+# Autotools
+.deps
+.dirstamp
+.libs
+Makefile
+Makefile.in
+/aclocal.m4
+/ar-lib
+/autom4te.cache
+/aminclude_static.am
+/compile
+/config.guess
+/config.log
+/config.status
+/config.sub
+/configure
+/depcomp
+/install-sh
+/libtool
+/ltmain.sh
+/missing
+/test-driver
+/test/Makefile
+/test/Makefile.in
+
+# Custom generated files
+src/generated
