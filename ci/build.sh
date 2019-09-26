@@ -23,10 +23,9 @@ docker run \
   bash -c "./bootstrap.sh && \
            ./configure && \
            make -j$(grep -c ^processor /proc/cpuinfo) && \
-           make check-valgrind"
-# TODO:
-#           export LD_LIBRARY_PATH=${ROOT_DIR}/parser/.libs && \
-#           for I in ${ROOT_DIR}/test/data/*.bin; do \
-#             valgrind --tool=memcheck --error-exitcode=1 --gen-suppressions=all \
-#               ${ROOT_DIR}/util/.libs/esel --file \${I} >/dev/null; \
-#           done"
+           make check-valgrind && \
+           export LD_LIBRARY_PATH=${ROOT_DIR}/parser/.libs && \
+           for I in ${ROOT_DIR}/test/data/*.bin; do \
+             valgrind --tool=memcheck --error-exitcode=1 \
+               ${ROOT_DIR}/util/.libs/esel --file \${I} >/dev/null || exit 1; \
+           done"

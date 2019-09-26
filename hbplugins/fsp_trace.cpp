@@ -70,12 +70,13 @@ class TempFile
         // Get absolute path to the temporary file
         std::string link = std::string("/proc/self/fd/") + std::to_string(fd_);
         char path[PATH_MAX];
-        if (readlink(link.c_str(), path, sizeof(path)) == -1)
+        const ssize_t len = readlink(link.c_str(), path, sizeof(path));
+        if (len == -1)
         {
             throw std::system_error(errno, std::system_category(),
                                     "Unable to get temporary file name");
         }
-        path_ = path;
+        path_.assign(path, path + len);
     }
 
     /**
