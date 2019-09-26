@@ -1,4 +1,6 @@
-# OpenPOWER eSEL parser
+[![Build Status](https://travis-ci.com/YADRO-KNS/openpower-esel-parser.svg?branch=master)](https://travis-ci.com/YADRO-KNS/openpower-esel-parser)
+
+# OpenPOWER eSEL parser (POWER8)
 eSEL parser is a library and console utility used for parsing OpenPOWER
 Extended System Event Log, which consist of an SEL record header and Platform
 Error Log (PEL) entry.
@@ -54,16 +56,25 @@ Project consist of 4 modules:
 The following environment must be available to build the project:
 - C++17 compiler;
 - Perl with installed XML::Simple package;
-- Autotools (automake and autoconf) with autoconf-archive.
+- Autotools (automake and autoconf) with autoconf-archive;
+- pkg-config, libtool, make.
 
-Build sequence:
-1. Remake the GNU Build System files:
+See `./ci/Dockerfile` for more details.
+
+### Build using docker
+Execute `./ci/build.sh`.
+This script builds docker image, compiles the project inside container and
+runs the tests.
+
+### Manual build
+1. Install all dependencies;
+2. Remake the GNU Build System files:
    `./bootstrap.sh`
-2. Update git submodules to get HostBoot's source code. This step is optional
+3. Update git submodules to get HostBoot's source code. This step is optional
    if you use external path, see `configure --help` for details;
-3. Configure the project:
+4. Configure the project:
    `./configure`
-4. Build the library:
+5. Build the library:
    `make`
 
 ### Unit tests
@@ -76,11 +87,6 @@ The target system must have _gtest_ package installed.
 To check the library with Valgrind tools use appropriate target:
 `make check-valgrind`
 The target system must have _valgrind_ package installed.
-
-## Known bugs
-Some of HostBoot's plugins allocate memory and don't free it. The problem code
-is in HostBoot's factory of ERRL parsers, but it happens only once at plugin
-initialization routine and doesn't lead to persistent memory leak.
 
 ## Limitations
 Plugin for parsing PRDF data is not supported yet.
