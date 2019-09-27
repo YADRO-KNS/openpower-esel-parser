@@ -1,17 +1,17 @@
-#!/bin/bash -eu
+#!/bin/sh -eu
 
 #
-# Local build.
+# Build and test the project.
 #
 
-ROOT_DIR="$(realpath $(dirname ${BASH_SOURCE[0]})/..)"
 DOCKER_IMAGE="eselparser"
+ROOT_DIR="$(cd $(dirname $0)/.. && pwd)"
 
 # Build docker image
 docker build --tag ${DOCKER_IMAGE} ${ROOT_DIR}/ci
 
 # Get default HostBoot
-[[ -f ${ROOT_DIR}/hostboot/makefile ]] || { git submodule init && git submodule update; }
+[ -f ${ROOT_DIR}/hostboot/makefile ] || git submodule update --init
 
 # Build the project and run tests
 docker run \
@@ -26,6 +26,6 @@ docker run \
            make check-valgrind && \
            export LD_LIBRARY_PATH=${ROOT_DIR}/parser/.libs && \
            for I in ${ROOT_DIR}/test/data/*.bin; do \
-             valgrind --tool=memcheck --error-exitcode=1 \
+             valgrind --error-exitcode=1 \
                ${ROOT_DIR}/util/.libs/esel --file \${I} >/dev/null || exit 1; \
            done"
