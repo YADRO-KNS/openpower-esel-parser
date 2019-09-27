@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/YADRO-KNS/openpower-esel-parser.svg?branch=master)](https://travis-ci.com/YADRO-KNS/openpower-esel-parser)
 
-# OpenPOWER eSEL parser (POWER8)
+# OpenPOWER eSEL parser
 eSEL parser is a library and console utility used for parsing OpenPOWER
 Extended System Event Log, which consist of an SEL record header and Platform
 Error Log (PEL) entry.

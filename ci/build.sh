@@ -20,12 +20,7 @@ docker run \
   --workdir "${ROOT_DIR}" \
   --user $(id -u):$(id -g) \
   ${DOCKER_IMAGE} \
-  bash -c "./bootstrap.sh && \
-           ./configure && \
-           make -j$(grep -c ^processor /proc/cpuinfo) && \
-           make check-valgrind && \
-           export LD_LIBRARY_PATH=${ROOT_DIR}/parser/.libs && \
-           for I in ${ROOT_DIR}/test/data/*.bin; do \
-             valgrind --error-exitcode=1 \
-               ${ROOT_DIR}/util/.libs/esel --file \${I} >/dev/null || exit 1; \
-           done"
+  sh -c "./bootstrap.sh && \
+         ./configure && \
+         make -j$(grep -c ^processor /proc/cpuinfo) && \
+         make check-valgrind"
