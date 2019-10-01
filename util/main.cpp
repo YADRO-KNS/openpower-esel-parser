@@ -46,7 +46,7 @@ enum
 /** @brief Print title with version info. */
 static void printTitle()
 {
-    std::cout << "OpenPOWER eSEL parser ver." << VERSION "." << std::endl;
+    std::cout << "OpenPOWER eSEL parser " << VERSION "." << std::endl;
     std::cout << "HostBoot plugin revision: " << HOSTBOOT_REVISION "."
               << std::endl;
 }

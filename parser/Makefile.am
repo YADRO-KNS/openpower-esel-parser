@@ -52,4 +52,4 @@ libeselparser_la_CXXFLAGS = -I$(top_srcdir)/hbplugins
 libeselparser_la_LDFLAGS = -Wl,--whole-archive,$(HOSTBOOT_PLUGINS_LIB),--no-whole-archive
 
 # Library version information
-libeselparser_la_LDFLAGS += -version-info 1:0:0
+libeselparser_la_LDFLAGS += -version-info 2:0:0
