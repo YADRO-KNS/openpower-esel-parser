@@ -17,16 +17,16 @@ AC_PROG_GREP
 AM_PROG_AR
 AC_HEADER_STDC
 
-# Check for perl (used by HostBoot)
-AC_PATH_PROG([HB_PERL], [nativeperl])
-AS_IF([test "x${HB_PERL}" = "x"], [AC_PATH_PROG([HB_PERL], [perl])])
-AS_IF([test "x${HB_PERL}" = "x"], [AC_MSG_ERROR([perl not found])])
+# Check for native perl (used by HostBoot)
+AC_PATH_PROG([NATIVE_PERL], [nativeperl])
+AS_IF([test "x${NATIVE_PERL}" = "x"], [AC_PATH_PROG([NATIVE_PERL], [perl])])
+AS_IF([test "x${NATIVE_PERL}" = "x"], [AC_MSG_ERROR([perl not found])])
 AC_MSG_CHECKING([for perl module XML::Simple])
-AS_IF([${HB_PERL} -e "use XML::Simple; exit" > /dev/null 2>&1],
+AS_IF([${NATIVE_PERL} -e "use XML::Simple; exit" > /dev/null 2>&1],
       [AC_MSG_RESULT([yes])],
       [AC_MSG_RESULT([no])
        AC_MSG_ERROR([XML::Simple package for Perl required but not found])])
-AC_SUBST([HB_PERL])
+AC_SUBST([NATIVE_PERL])
 
 # Library build configuration
 LT_INIT
