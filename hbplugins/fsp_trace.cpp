@@ -23,6 +23,7 @@
 
 #include <climits>
 #include <cstdio>
+#include <filesystem>
 #include <string>
 #include <system_error>
 #include <vector>
@@ -159,8 +160,28 @@ static bool fspTrace(ErrlUsrParser& cb, const uint8_t* buffer, size_t len,
         logFile.create();
         logFile.write(buffer, len);
 
+        // Define path to fsp-trace utility, allow using the program from
+        // current directory if absolute path is not specified
+        std::string fspUtilPath = FspUtil;
+        if (FspUtil.find('/') == std::string::npos)
+        {
+            const auto cwdFspUtil = std::filesystem::current_path() / FspUtil;
+            const auto fsStatus = std::filesystem::status(cwdFspUtil);
+            if (std::filesystem::exists(fsStatus) &&
+                std::filesystem::is_regular_file(fsStatus))
+            {
+                // Must be executable
+                const auto exec = fsStatus.permissions() &
+                                  (std::filesystem::perms::owner_exec |
+                                   std::filesystem::perms::group_exec |
+                                   std::filesystem::perms::others_exec);
+                if (exec != std::filesystem::perms::none)
+                    fspUtilPath = cwdFspUtil;
+            }
+        }
+
         // Command to run FSP trace
-        std::string traceCommand = FspUtil;
+        std::string traceCommand = fspUtilPath;
         traceCommand += " --stringfile \"" + stringFile + '\"';
         traceCommand += " \"" + logFile.path() + '\"';
         traceCommand += " 2>&1";
