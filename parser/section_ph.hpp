@@ -41,7 +41,7 @@ class SectionPH : public Section
     {
         uint64_t createTimestamp; ///< Creation timestamp (TB register format)
         uint64_t commitTimestamp; ///< Commit timestamp (TB register format)
-        uint8_t subsystemId;      ///< Subsystem component id
+        uint8_t subsystemId;      ///< Creator subsystem id
         uint16_t reserved0;
         uint8_t sectionCount; ///< Number of sections in log
         uint32_t reserved1;

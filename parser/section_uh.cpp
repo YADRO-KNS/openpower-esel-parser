@@ -39,7 +39,7 @@ SectionUH::SectionUH(const Header& header, const Payload& payload) :
     data_.action = be16toh(data_.action);
 
     // Construct human readable descriptions
-    params_ = {{"Subsystem ID", SubsystemName.get(data_.subsystemId)},
+    params_ = {{"Subsystem", SubsystemName.get(data_.subsystemId)},
                {"Event severity", EventSeverity.get(data_.eventSeverity)},
                {"Event type", EventType.get(data_.eventType)},
                {"Event scope", EventScope.get(data_.eventData)},
