@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/YADRO-KNS/openpower-esel-parser.svg?branch=master)](https://travis-ci.com/YADRO-KNS/openpower-esel-parser)
+[![Build Status](https://travis-ci.com/YADRO-KNS/openpower-esel-parser.svg?branch=master-p8)](https://travis-ci.com/YADRO-KNS/openpower-esel-parser)
 
 # OpenPOWER eSEL parser (POWER8)
 eSEL parser is a library and console utility used for parsing OpenPOWER
