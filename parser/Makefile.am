@@ -46,10 +46,9 @@ libeselparser_la_SOURCES = \
 	sel_record.hpp \
 	setup.hpp
 
-# Linking with hostboot's plugins library
-HOSTBOOT_PLUGINS_LIB = $(top_builddir)/hbplugins/libhbplugins.a
+# Linking with hostboot's plugins static library
 libeselparser_la_CXXFLAGS = -I$(top_srcdir)/hbplugins
-libeselparser_la_LDFLAGS = -Wl,--whole-archive,$(HOSTBOOT_PLUGINS_LIB),--no-whole-archive
+libeselparser_la_LIBADD = $(top_builddir)/hbplugins/libhbplugins.la
 
 # Library version information
-libeselparser_la_LDFLAGS += -version-info 1:0:0
+libeselparser_la_LDFLAGS = -version-info 1:0:0
