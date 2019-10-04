@@ -1,4 +1,3 @@
 [submodule "hostboot"]
 	path = hostboot
-	url = https://github.com/artemsen/hostboot.git
-	branch = unaligned_read
+	url = https://github.com/open-power/hostboot.git
