@@ -68,6 +68,8 @@ class LookupTable : public std::map<T, const char*>
 
 /** @brief Subsystems names. */
 extern const LookupTable<uint8_t> SubsystemName;
+/** @brief Creator subsystem types. */
+extern const LookupTable<uint8_t> CreatorSubSys;
 /** @brief Event severities. */
 extern const LookupTable<uint8_t> EventSeverity;
 /** @brief Event scopes. */

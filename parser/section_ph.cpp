@@ -48,7 +48,7 @@ SectionPH::SectionPH(const Header& header, const Payload& payload) :
     // Construct human readable descriptions
     params_ = {{"Create timestamp", data_.createTimestamp},
                {"Commit timestamp", data_.commitTimestamp},
-               {"Subsystem ID", SubsystemName.get(data_.subsystemId)},
+               {"Creator subsystem", CreatorSubSys.get(data_.subsystemId)},
                {"Section count", data_.sectionCount},
                {"Creator ID Lo", data_.creatorSubIdLo},
                {"Creator ID Hi", data_.creatorSubIdHi},

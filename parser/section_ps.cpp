@@ -58,7 +58,7 @@ SectionPS::SectionPS(const Header& header, const Payload& payload) :
     {
         rcNum = std::stoul(rcText, 0, 16);
         params_.emplace_back(
-            Param{"Module ID",
+            Param{"Module",
                   getComponentName(static_cast<uint16_t>(rcNum & 0xff00))});
         params_.emplace_back(Param{"Reference code", rcNum});
     }

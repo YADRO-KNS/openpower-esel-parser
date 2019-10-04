@@ -38,7 +38,7 @@ static const eSEL::Params phHeader{
 static const eSEL::Params phPayload{
     {"Create timestamp",  "0x0000000a4d71e974"},
     {"Commit timestamp",  "0x0000000a4f680d96"},
-    {"Subsystem ID",      "Unknown (0x42)"},
+    {"Creator subsystem", "HostBoot"},
     {"Section count",     "0x10"},
     {"Creator ID Lo",     "0x00000000"},
     {"Creator ID Hi",     "0x00000000"},
@@ -66,7 +66,7 @@ static const eSEL::Params uhHeader{
     {"Section component", "hwpf"}
 };
 static const eSEL::Params uhPayload{
-    {"Subsystem ID",   "Memory subsystem"},
+    {"Subsystem",      "Memory subsystem"},
     {"Event severity", "Unrecoverable Error"},
     {"Event type",     "Not applicable"},
     {"Event scope",    "Single platform"},
@@ -92,7 +92,7 @@ static const eSEL::Params psHeader{
     {"Section component", "NONE"}
 };
 static const eSEL::Params psPayload{
-    {"Module ID",        "hwpf"},
+    {"Module",           "hwpf"},
     {"Reference code",   "0xbc8a090f"},
     {"Flags",            "0x00"},
     {"Valid word count", "0x09"},
