@@ -182,6 +182,7 @@ static bool fspTrace(ErrlUsrParser& cb, const uint8_t* buffer, size_t len,
 
         // Command to run FSP trace
         std::string traceCommand = fspUtilPath;
+        traceCommand += " --file_name";
         traceCommand += " --stringfile \"" + stringFile + '\"';
         traceCommand += " \"" + logFile.path() + '\"';
         traceCommand += " 2>&1";
