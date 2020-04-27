@@ -18,6 +18,7 @@
 
 #include "task.hpp"
 
+#include <endian.h>
 #include <sys/stat.h>
 
 #include <algorithm>

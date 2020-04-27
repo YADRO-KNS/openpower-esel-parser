@@ -22,6 +22,8 @@
 #include "ltables.hpp"
 #include "params_col.hpp"
 
+#include <endian.h>
+
 #include <cinttypes>
 #include <hbplugins.hpp>
 

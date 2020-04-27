@@ -20,6 +20,8 @@
 
 #include "fmtexcept.hpp"
 
+#include <endian.h>
+
 #include <cinttypes>
 
 namespace eSEL
