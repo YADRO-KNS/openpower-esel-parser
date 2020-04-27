@@ -1,8 +1,9 @@
-FROM ubuntu:19.04
+FROM ubuntu:20.04
 
 LABEL Description="eSEL parser builder"
 
 # Install base system
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt update
 RUN apt upgrade --yes
 RUN apt install --no-install-recommends --yes \
