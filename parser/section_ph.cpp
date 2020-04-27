@@ -21,6 +21,8 @@
 #include "fmtexcept.hpp"
 #include "ltables.hpp"
 
+#include <endian.h>
+
 #include <cinttypes>
 
 namespace eSEL

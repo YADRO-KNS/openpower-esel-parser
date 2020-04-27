@@ -23,6 +23,8 @@
 #include "section_ud.hpp"
 #include "section_uh.hpp"
 
+#include <endian.h>
+
 namespace eSEL
 {
 
