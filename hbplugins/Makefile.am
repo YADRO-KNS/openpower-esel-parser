@@ -115,7 +115,8 @@ libhbplugins_la_CXXFLAGS = \
 	-idirafter$(HOSTBOOT_SRC_DIR)/src/usr/errl/plugins \
 	-idirafter$(HOSTBOOT_GEN_DIR) \
 	-idirafter$(HOSTBOOT_GEN_DIR)/plugins \
-	-Wno-unused-parameter
+	-Wno-unused-parameter \
+	-include cstdio
 
 # Always build static library
 libhbplugins_la_LDFLAGS = -static
