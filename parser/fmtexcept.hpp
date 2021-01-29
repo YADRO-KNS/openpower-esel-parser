@@ -18,6 +18,7 @@
 
 #pragma once
 
+#include <cstring>
 #include <exception>
 #include <string>
 
@@ -30,6 +31,8 @@ namespace eSEL
  */
 class InvalidFormat : public std::exception
 {
+    static constexpr auto defaultMessage = "Invalid format";
+
   public:
     /**
      * @brief Constructor.
@@ -39,7 +42,6 @@ class InvalidFormat : public std::exception
     template <typename... A>
     InvalidFormat(const char* fmt, A&&... args)
     {
-        static const char* defaultMessage = "Invalid format";
         if (!fmt)
             msg_ = defaultMessage;
         else
@@ -54,6 +56,10 @@ class InvalidFormat : public std::exception
                          std::forward<A>(args)...);
             }
         }
+    }
+    InvalidFormat(const char* message)
+    {
+        msg_ = (!message || strlen(message) == 0) ? defaultMessage : message;
     }
 
     const char* what() const noexcept override
