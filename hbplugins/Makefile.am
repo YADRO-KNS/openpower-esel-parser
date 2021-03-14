@@ -116,7 +116,8 @@ libhbplugins_la_CXXFLAGS = \
 	-idirafter$(HOSTBOOT_GEN_DIR) \
 	-idirafter$(HOSTBOOT_GEN_DIR)/plugins \
 	-Wno-unused-parameter \
-	-include cstdio
+	-include cstdio \
+	-include endian.h
 
 # Always build static library
 libhbplugins_la_LDFLAGS = -static
