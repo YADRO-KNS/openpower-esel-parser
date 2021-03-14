@@ -21,6 +21,7 @@
 #include "hexdump.hpp"
 
 #include <cstring>
+#include <limits>
 
 namespace eSEL
 {
